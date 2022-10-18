@@ -1,10 +1,11 @@
 package sapronov.atm.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "accounts")
-public class Account {
+public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -16,8 +17,6 @@ public class Account {
 
     @Column(name = "money_count")
     private int money_count;
-
-
 
     public Account() {
     }

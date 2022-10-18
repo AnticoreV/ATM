@@ -11,9 +11,9 @@ import java.io.PrintWriter;
 @WebServlet(name = "ExchangeController", value = "/ExchangeController")
 public class ExchangeController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CurrencyRate currencyRate = new CurrencyRate();
-        PrintWriter writer = response.getWriter();
+        PrintWriter writer = resp.getWriter();
         writer.write(currencyRate.getCurrency());
     }
 }

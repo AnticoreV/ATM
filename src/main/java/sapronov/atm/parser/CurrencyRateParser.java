@@ -2,7 +2,6 @@ package sapronov.atm.parser;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class CurrencyRateParser {
@@ -10,7 +9,7 @@ public class CurrencyRateParser {
         Elements p = null;
         try{
             Document doc = Jsoup.connect("https://www.xe.com/currencycharts/?from=USD&to=EUR&view=1Y").get();
-            p = doc.select("p");
+            p = doc.select("p[class=paragraph__Paragraph-sc-1y1xjre-0 fqOqID]");
         }catch (Exception e){
             e.printStackTrace();
         }
