@@ -8,12 +8,19 @@ import java.io.IOException;
 @WebServlet(name = "ValidationController", value = "/ValidationController")
 public class ValidationController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String username = req.getParameter("user_name");
+        String password = req.getParameter("password");
+        RequestDispatcher requestDispatcher;
+        if(username.length() > 16
+                || username.length() < 2
+                || password.length() > 16
+                || password.length() < 8){
+            requestDispatcher = req.getRequestDispatcher("/view/register.jsp");
+        }
+        else{
+            requestDispatcher = req.getRequestDispatcher("/MainController");
+        }
+        requestDispatcher.forward(req, resp);
     }
 }

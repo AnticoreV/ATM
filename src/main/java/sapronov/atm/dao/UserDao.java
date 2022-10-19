@@ -10,4 +10,5 @@ public interface UserDao {
     public void update(User user);
     public void delete(User user);
     public List<User> findAll();
+    public int count();
 }

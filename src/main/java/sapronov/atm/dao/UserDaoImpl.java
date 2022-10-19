@@ -2,6 +2,7 @@ package sapronov.atm.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import sapronov.atm.model.User;
 import sapronov.atm.util.HibernateUtil;
 
@@ -35,5 +36,12 @@ public class UserDaoImpl implements UserDao{
     public List<User> findAll() {
         List<User> users = (List<User>)  HibernateUtil.getSessionFactory().openSession().createQuery("FROM User").list();
         return users;
+    }
+    public int count(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String hql = "SELECT COUNT(user_name) AS Number FROM User";
+        Query query = session.createQuery(hql);
+        List <Integer> list = query.list();
+        return Integer.parseInt(String.valueOf(list.get(0)));
     }
 }

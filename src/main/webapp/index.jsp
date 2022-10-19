@@ -5,8 +5,6 @@
     <title></title>
 </head>
 <body>
-<a href="ExchangeController">controller</a>
-<a href="UserController">testhiber</a>
-<a href="view/register.jsp">register</a>
+<a href="register.jsp">register_here</a>
 </body>
 </html>
