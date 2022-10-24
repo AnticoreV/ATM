@@ -5,6 +5,6 @@
     <title></title>
 </head>
 <body>
-<a href="view/register.jsp">register_here</a>
+<a href="register.jsp">register_here</a>
 </body>
 </html>
