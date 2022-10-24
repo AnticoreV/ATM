@@ -1,14 +1,18 @@
 
-b
-2src/main/java/sapronov/atm/util/HibernateUtil.java,4/9/49e71e6ce685986e0cabd9e384f79eddbb279e8b
-U
-%src/main/webapp/view/balance-view.jsp,5/d/5d59137797b8c5e44b9410e254b7c63320b8786e
 W
 'src/main/webapp/view/user-info-view.jsp,c/3/c3de7a5696b3f8ff631088e59c79924acf86d8b3
 S
 #src/main/webapp/view/stats-view.jsp,7/8/780734f117d9ebfd3dce42eedc4efe92133ae65a
 [
 +src/main/webapp/view/exchange-rate-view.jsp,a/9/a9b27dd7b60946483a2f4355a79713f8701c1bf4
+I
+src/main/webapp/index.jsp,8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded
+U
+%src/main/webapp/view/account-view.jsp,6/0/601facbeb1242382645181ff02304b410573f2e0
+U
+%src/main/webapp/view/balance-view.jsp,5/d/5d59137797b8c5e44b9410e254b7c63320b8786e
+b
+2src/main/java/sapronov/atm/util/HibernateUtil.java,4/9/49e71e6ce685986e0cabd9e384f79eddbb279e8b
 i
 9src/main/java/sapronov/atm/parser/CurrencyRateParser.java,d/4/d496bc2b9948a762c92997de24e67a85b143b5d0
 R
@@ -19,9 +23,5 @@ b
 2src/main/java/sapronov/atm/model/CurrencyRate.java,5/7/579c8f71247a0d6418a625afda7c69e7422b8942
 Z
 *src/main/java/sapronov/atm/model/User.java,e/a/eaece55b2375653e538962f41663af60662c1304
-U
-%src/main/webapp/view/account-view.jsp,6/0/601facbeb1242382645181ff02304b410573f2e0
-Q
-!src/main/webapp/view/register.jsp,3/c/3cc7e2cdd8756fe16ce0b3c4aa476464b45babf9
 Z
 *src/main/java/sapronov/atm/model/Role.java,4/8/4862754825c3115674d4b3d58d4e03ca0b1cfb54
