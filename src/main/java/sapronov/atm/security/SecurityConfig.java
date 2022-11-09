@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configurers.userdetails.DaoAuthenticationConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
@@ -21,13 +21,25 @@ public class SecurityConfig {
     @Autowired
     UserDetailsService userDetailsService;
 
+    @Qualifier("authProviderImpl")
     @Autowired
     private AuthProviderImpl authProvider;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/view/*").hasRole("USER").and().formLogin();
-        return http.build();
+    public SecurityFilterChain configure(HttpSecurity http) throws Exception {
+        return http
+                .csrf().disable()
+                .authorizeHttpRequests()
+                .antMatchers("/", "/register.jsp", "/login.jsp").permitAll()
+                .antMatchers("/view/*").hasRole("USER")
+                .anyRequest().authenticated()
+                .and().httpBasic()
+                .and().build();
+    }
+
+    @Bean
+    public BCryptPasswordEncoder getPasswordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
@@ -37,15 +49,4 @@ public class SecurityConfig {
         authenticationManagerBuilder.authenticationProvider(authProvider);
         return authenticationManagerBuilder.build();
     }
-
-    @Bean
-    public DaoAuthenticationConfigurer<AuthenticationManagerBuilder, UserDetailsService> manager(AuthenticationManagerBuilder auth) throws Exception {
-        return auth.userDetailsService(userDetailsService);
-    }
-
-//    @Autowired
-//    public void initialize(AuthenticationManagerBuilder builder, DataSource dataSource) {
-//        builder.jdbcAuthentication().dataSource(dataSource).withUser("dave")
-//                .password("secret").roles("USER");
-//    }
 }

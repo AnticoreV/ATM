@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "ValidationController", value = "/Main")
+@WebServlet(name = "ValidationController", value = "/api")
 public class ValidationController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -19,7 +19,7 @@ public class ValidationController extends HttpServlet {
             requestDispatcher = req.getRequestDispatcher("/view/register.jsp");
         }
         else{
-            requestDispatcher = req.getRequestDispatcher("/MainController");
+            requestDispatcher = req.getRequestDispatcher("/api/home");
         }
         requestDispatcher.forward(req, resp);
     }

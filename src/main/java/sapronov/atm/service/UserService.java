@@ -11,5 +11,5 @@ public class UserService {
     public void deleteUser(User user){userDao.delete(user);}
     public User findUser(int id){return userDao.findById(id);}
     public void showUsers(){userDao.findAll();}
-    public int countUsers(){return userDao.count();}
+    public int getUsersCount(){return userDao.count();}
 }

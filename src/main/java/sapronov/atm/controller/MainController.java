@@ -1,17 +1,13 @@
 package sapronov.atm.controller;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
 
-@WebServlet(name = "MainController", value = "/MainController")
-public class MainController extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/main-view.jsp");
-        requestDispatcher.forward(req, resp);
+@RestController("/api")
+public class MainController {
+    @GetMapping("/home")
+    public String home(){
+        return "Home";
     }
 }
